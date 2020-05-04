@@ -3,10 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
 
 
 
 var app = express();
+
+//connect to mongodb
+mongoose.connect('mongodb://localhost:27017/express_app', ()=>{
+  console.log('Connection has been made');
+}).catch(err => {
+  console.error('App starting error:', err.stack);
+  process.exit(1);
+});
+
 var fs = require('file-system');
 
 // Include controllers
