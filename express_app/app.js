@@ -10,11 +10,14 @@ var mongoose = require('mongoose');
 var app = express();
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost:27017/express_app', ()=>{
+mongoose.connect('mongodb://localhost:27017/express_app', { useUnifiedTopology: true, useNewUrlParser: true }, ()=>{
   console.log('Connection has been made');
+
 }).catch(err => {
+
   console.error('App starting error:', err.stack);
   process.exit(1);
+
 });
 
 var fs = require('file-system');
