@@ -3,8 +3,25 @@ const Schema = mongoose.Schema;
 
 const user_schema = new Schema({
 
-	name: String;
-	email: String;
+	name: {
+		type: String,
+		validate:{
+			validator: function(v){
+
+				//write your own validation code
+			},
+			message: '{VALUE} is not a valid name'
+		}
+	},
+	email:  {
+		type: String,
+		validate:{
+			validator: function(v){
+				//write your own validation code
+			},
+			message: '{VALUE} is not a valid email'
+		}
+	}
 
 });
 
