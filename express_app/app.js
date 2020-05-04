@@ -2,15 +2,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
+var fs = require('file-system');
 
 
 var app = express();
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost:27017/express_app', { useUnifiedTopology: true, useNewUrlParser: true }, ()=>{
+mongoose.connect('mongodb://localhost:27017/mongo_test_queries', { useUnifiedTopology: true, useNewUrlParser: true }, ()=>{
   console.log('Connection has been made');
 
 }).catch(err => {
@@ -20,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/express_app', { useUnifiedTopology: 
 
 });
 
-var fs = require('file-system');
+
 
 // Include controllers
 fs.readdirSync('controllers').forEach(function (file) {

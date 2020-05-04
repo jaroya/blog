@@ -89,7 +89,7 @@ User.findById(1, 'name email',(error,user)=>{
 		}
 
 		res.send({
-			success:true;
+			success:true
 		});
 	});
 });

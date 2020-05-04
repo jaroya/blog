@@ -1,6 +1,16 @@
+const User = require("../models/Watu");
+
 module.exports.controller = (app) => {
 // get users page
 	app.get('/users', (req, res) => {
-		res.render('users', { title: 'Users', description: 'This is the description of all the users' });
+
+		User.find({}, 'name email',(error,users)=>{
+			if(error){
+				console.log(error);
+			}
+
+			res.send(users);
+		})
+		
 	});
 }
